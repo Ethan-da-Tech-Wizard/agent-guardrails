@@ -1,0 +1,22 @@
+{
+  "component": "write_guards",
+  "exclude_exceptions": [],
+  "files": [
+    "CHANGES_FROM_SOURCE.md",
+    "LICENSE",
+    "README.md",
+    "scripts/guarded_write.py",
+    "scripts/host_paths.py",
+    "scripts/install_signal_guard.sh",
+    "scripts/signal_guard.py",
+    "scripts/test_guarded_write.py",
+    "scripts/test_host_paths.py",
+    "scripts/test_install_signal_guard.py",
+    "scripts/test_signal_guard.py",
+    "scripts/test_write_guard.py",
+    "scripts/write_guard.py"
+  ],
+  "refused": [],
+  "replacements": [],
+  "version": 2
+}

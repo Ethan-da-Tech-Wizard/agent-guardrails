@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+# The shared STOP latch file (default location is inside the checkout): never commit it.
+STOP
+# Optional private host-name lists for the secret hook: they hold the very names they hide.
+redactions.json
+host_roles.json
+retired_hosts.json

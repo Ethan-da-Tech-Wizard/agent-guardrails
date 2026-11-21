@@ -1,0 +1,14 @@
+{
+  "component": "stop_latch",
+  "exclude_exceptions": [],
+  "files": [
+    "CHANGES_FROM_SOURCE.md",
+    "LICENSE",
+    "README.md",
+    "scripts/stop_latch.py",
+    "scripts/test_stop_latch.py"
+  ],
+  "refused": [],
+  "replacements": [],
+  "version": 2
+}

@@ -1,0 +1,18 @@
+{
+  "component": "secret_scan_suite",
+  "exclude_exceptions": [],
+  "files": [
+    "CHANGES_FROM_SOURCE.md",
+    "LICENSE",
+    "README.md",
+    "scripts/git_secret_hook.py",
+    "scripts/home_secret_scan.py",
+    "scripts/secret_scan.py",
+    "scripts/test_git_secret_hook.py",
+    "scripts/test_home_secret_scan.py",
+    "scripts/test_secret_scan.py"
+  ],
+  "refused": [],
+  "replacements": [],
+  "version": 2
+}
