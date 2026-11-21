@@ -1,0 +1,12 @@
+{
+  "component": ".github",
+  "exclude_exceptions": [],
+  "files": [
+    "ISSUE_TEMPLATE/bug_report.md",
+    "ISSUE_TEMPLATE/feature_request.md",
+    "PULL_REQUEST_TEMPLATE.md"
+  ],
+  "refused": [],
+  "replacements": [],
+  "version": 2
+}

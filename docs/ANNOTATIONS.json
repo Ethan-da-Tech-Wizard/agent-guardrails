@@ -1,0 +1,13 @@
+{
+  "component": "docs",
+  "exclude_exceptions": [],
+  "files": [
+    "README.md",
+    "secret_scan_suite.md",
+    "stop_latch.md",
+    "write_guards.md"
+  ],
+  "refused": [],
+  "replacements": [],
+  "version": 2
+}
