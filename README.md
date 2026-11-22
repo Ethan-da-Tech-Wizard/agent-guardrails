@@ -120,6 +120,14 @@ All 195 tests pass across Linux and macOS on Python 3.9 through 3.13. GitHub Act
 
 ### Visual Walkthrough
 
+<p align="center">
+  <img src="docs/assets/agent_guardrails_overview.svg" alt="Agent Guardrails Active Protection Suite" width="860">
+</p>
+
+<p align="center">
+  <img src="docs/assets/secret_scanner_detection.svg" alt="Secret Scan Suite Pre-Commit Interception" width="860">
+</p>
+
 ```text
 ┌────────────────────────────────────────────────────────────────────────────┐
 │ $ python3 -B -m unittest discover -s stop_latch/scripts -p "test_*.py"     │
@@ -143,7 +151,9 @@ All 195 tests pass across Linux and macOS on Python 3.9 through 3.13. GitHub Act
 
 I am the programmer: I design, specify and direct AI coding agents that generate much of the code, and I review and test everything. Ethan Kilmer, TWU LLC. Commits that an agent contributed to carry a `Co-Authored-By` trailer.
 
-All code and contributions adhere to the **[Magi Bible: Engineering Foundations & Safety Standards for AI Coding](MAGI_BIBLE.md)**:
+All code and contributions adhere to the **[Magi Bible: Engineering Foundations & Safety Standards for AI Coding](MAGI_BIBLE.md)** and **[MAGI_LOOK_HERE.md](MAGI_LOOK_HERE.md)**:
+- **[MAGI_LOOK_HERE.md](MAGI_LOOK_HERE.md)**: Universal contributor & AI agent onboarding guide, visual walkthrough requirements, zero-PII validation rules.
+- **[MAGI_BIBLE.md](MAGI_BIBLE.md)**: Core engineering foundations, multi-seat governance, and verification checklists.
 - **Rule 16 Commenting Invariant:** Every module maintains $\ge 25\%$ explanatory comment density and structured headers.
 - **Fail-Closed Security:** Guards fail safe on unexpected inputs or missing state.
 - **Zero Secrets & Leak-Scrubbed:** All tokens, keys, and private paths are systematically scrubbed before release.
