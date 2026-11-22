@@ -1,0 +1,35 @@
+name: tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Run stop_latch tests
+      run: |
+        python3 -B -m unittest discover -s stop_latch/scripts -p "test_*.py" -v
+
+    - name: Run write_guards tests
+      run: |
+        python3 -B -m unittest discover -s write_guards/scripts -p "test_*.py" -v
+
+    - name: Run secret_scan_suite tests
+      run: |
+        python3 -B -m unittest discover -s secret_scan_suite/scripts -p "test_*.py" -v

@@ -30,7 +30,7 @@ class InstallerTest(unittest.TestCase):
 
     def site_files(self):
         """Return the sorted names of installer-created files under the temporary user base."""
-        return sorted(p.name for p in self.base.rglob("write_guards_signal_guard*") if p.is_file())
+        return sorted(p.name for p in self.base.rglob("write_guards_signal_guard*") if p.is_file() and not p.name.endswith(".pyc"))
 
     def test_default_is_status_and_changes_nothing(self):
         """Proves: running with no arguments only reports "not installed" and creates no files."""
@@ -58,7 +58,7 @@ class InstallerTest(unittest.TestCase):
 
     def test_path_with_quote_cannot_inject(self):
         """Proves: a checkout path containing quote characters installs cleanly and cannot inject code into the boot file."""
-        d = Path(self.t.name) / "we'ird \"dir\""; d.mkdir()
+        d = Path(self.t.name) / "we'ird \"dir\""; d.mkdir(); d.chmod(0o755)
         for f in ("install_signal_guard.sh", "signal_guard.py"):
             shutil.copy(str(HERE / f), str(d / f))
         r = self.run_script("--install", "--yes", script=d / "install_signal_guard.sh")
@@ -117,7 +117,7 @@ class InstallerTest(unittest.TestCase):
 
     def test_loud_warning_if_guard_file_goes_missing(self):
         """Proves: if signal_guard.py is deleted after install, Python still starts but prints a "NOT active" warning to stderr."""
-        d = Path(self.t.name) / "mv"; d.mkdir()
+        d = Path(self.t.name) / "mv"; d.mkdir(); d.chmod(0o755)
         for f in ("install_signal_guard.sh", "signal_guard.py"):
             shutil.copy(str(HERE / f), str(d / f))
         self.assertEqual(self.run_script("--install", "--yes", script=d / "install_signal_guard.sh").returncode, 0)
@@ -130,7 +130,7 @@ class InstallerTest(unittest.TestCase):
         """Regression (B4): --remove used to exit 2 ("missing .../signal_guard.py") when signal_guard.py was gone, which is exactly
         when the start-up warning tells you to run it. Proves: after the guard is deleted, --remove exits 0 and deletes both
         files, --status still works, and the warning names both files so they can be removed by hand."""
-        d = Path(self.t.name) / "gone"; d.mkdir()
+        d = Path(self.t.name) / "gone"; d.mkdir(); d.chmod(0o755)
         for f in ("install_signal_guard.sh", "signal_guard.py"):
             shutil.copy(str(HERE / f), str(d / f))
         script = d / "install_signal_guard.sh"
